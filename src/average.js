@@ -21,7 +21,6 @@ const average = (a) => {
     if (typeof array[index] !== typeof 5) {
       return undefined;
     }
-    console.log(typeof array[index]);
     total += array[index];
   }
   return Math.round(total / array.length);
