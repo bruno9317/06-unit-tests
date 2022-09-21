@@ -54,20 +54,26 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
   });
   it('Teste se a função retorna o objeto correto para o parâmetro "Arya".', () => {
-    const retorno = getCharacter('arya');
-    expect(getCharacter('arya')).toBe(retorno);
+    expect(getCharacter('arya').name).toMatch(/Arya Stark/);
+    expect(getCharacter('arya').class).toMatch(/Rogue/);
+    expect(getCharacter('arya').phrases[0]).toMatch(/Not today/);
+    expect(getCharacter('arya').phrases[1]).toMatch(/A girl has no name/);
   });
   it('Teste se a função retorna o objeto correto para o parâmetro "Brienne".', () => {
-    const retorno = getCharacter('brienne');
-    expect(getCharacter('brienne')).toBe(retorno);
+    expect(getCharacter('brienne').name).toMatch(/Brienne Tarth/);
+    expect(getCharacter('brienne').class).toMatch(/Knight/);
+    expect(getCharacter('brienne').phrases[0]).toMatch(/Im No Lady, Your Grace/);
+    expect(getCharacter('brienne').phrases[1]).toMatch(/I, Brienne Of Tarth, Sentence You To Die/);
   });
   it('Teste se a função retorna o objeto correto para o parâmetro "Melissandre".', () => {
-    const retorno = getCharacter('melissandre');
-    expect(getCharacter('melissandre')).toBe(retorno);
+    expect(getCharacter('melissandre').name).toMatch(/Melissandre/);
+    expect(getCharacter('melissandre').class).toMatch(/Necromancer/);
+    expect(getCharacter('melissandre').phrases[0]).toMatch(/Death By Fire Is The Purest Death/);
+    expect(getCharacter('melissandre').phrases[1]).toMatch(/For The Night Is Dark And Full Of Terrors/);
   });
   it('Teste se o parâmetro não é Case Sensitive, ou seja, independente de conter letras maiúsculas ou minúsculas retorna o mesmo objeto relativo a ele.', () => {
     expect(getCharacter('melissandre')).toBe(getCharacter('Melissandre'));
-    expect(getCharacter('brienne')).toBe(getCharacter('brienne'));
+    expect(getCharacter('brienne')).toBe(getCharacter('Brienne'));
     expect(getCharacter('arya')).toBe(getCharacter('Arya'));
   });
   it('Teste se ao passar um nome que não está na tabela, a função retorna undefined.', () => {

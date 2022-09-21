@@ -57,6 +57,12 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     fail('Teste vazio!');
     // TESTE 1: Verifique se função `createMenu()` retorna um objeto que possui a chave `fetchMenu`, a qual tem como valor uma função.
     // ```
+    for (let index = 0; index < Object.keys(createMenu()).length; index += 1) {
+      console.log('bom dia');
+      if (Object.keys(createMenu())[index] === 'fetchMenu') {
+        expect(2 + 2).toEqual(4);
+      }
+    }
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
     // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
