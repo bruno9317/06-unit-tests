@@ -20,4 +20,6 @@ const createStudent = (nome) => {
   return estudante;
 };
 
+const estudante2 = createStudent('Nobre');
+
 module.exports = createStudent;

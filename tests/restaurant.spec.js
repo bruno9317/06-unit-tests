@@ -54,7 +54,7 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente a função `createMenu`, bem como seus casos de teste', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
+    // fail('Teste vazio!');
     // TESTE 1: Verifique se função `createMenu()` retorna um objeto que possui a chave `fetchMenu`, a qual tem como valor uma função.
     // ```
     for (let index = 0; index < Object.keys(createMenu()).length; index += 1) {
@@ -68,10 +68,16 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     // TESTE 2: Verifique se 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`, 
     // considerando que a função createMenu() foi chamada com o objeto: `{ food: {}, drink: {} }`.
     // ```
-    // const objetoRetornado = createMenu({ food: {}, drink: {} });
+    const objetoQualquer = {
+      food: {}, 
+      drink: {},
+    };
+    const objetoRetornado = createMenu(objetoQualquer);
+    expect(objetoRetornado.fetchMenu()).toEqual({ food: {}, drink: {}});
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
     // TESTE 3: Verifique se o menu passado pra função createMenu() é idêntico ao menu recuperado pela função 'objetoRetornado.fetchMenu()'
+    expect(objetoRetornado.fetchMenu()).toEqual(objetoQualquer);
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
@@ -82,6 +88,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
 
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
+    expect(objetoRetornado.consumption).toEqual([]);
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
     // ```
